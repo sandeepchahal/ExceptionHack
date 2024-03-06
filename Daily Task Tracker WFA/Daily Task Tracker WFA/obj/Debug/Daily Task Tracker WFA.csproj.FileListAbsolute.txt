@@ -1,0 +1,38 @@
+c:\users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe.config
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB.mdf
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB_log.ldf
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.pdb
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csprojResolveAssemblyReference.cache
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.DailyTasktracker.resources
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.Properties.Resources.resources
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.ShowDetails.resources
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.GenerateResource.Cache
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.exe
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.pdb
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe.config
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.exe
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.pdb
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB.mdf
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB_log.ldf
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.pdb
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csprojResolveAssemblyReference.cache
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.DailyTasktracker.resources
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.Properties.Resources.resources
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.ShowDetails.resources
+D:\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.GenerateResource.Cache
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB.mdf
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB_log.ldf
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe.config
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.pdb
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.AssemblyReference.cache
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.SuggestedBindingRedirects.cache
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.DailyTasktracker.resources
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.Properties.Resources.resources
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.ShowDetails.resources
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.GenerateResource.cache
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.CoreCompileInputs.cache
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.exe
+D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.pdb
