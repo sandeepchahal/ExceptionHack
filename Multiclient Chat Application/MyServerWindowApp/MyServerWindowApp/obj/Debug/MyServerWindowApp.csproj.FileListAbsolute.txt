@@ -1,0 +1,18 @@
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\bin\Debug\MyServerWindowApp.exe.config
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\bin\Debug\MyServerWindowApp.exe
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\bin\Debug\MyServerWindowApp.pdb
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.csprojResolveAssemblyReference.cache
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.Form1.resources
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.Properties.Resources.resources
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.csproj.GenerateResource.Cache
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.exe
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.pdb
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\bin\Debug\MyServerWindowApp.exe.config
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.exe
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.pdb
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\bin\Debug\MyServerWindowApp.exe
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\bin\Debug\MyServerWindowApp.pdb
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.csprojResolveAssemblyReference.cache
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.Form1.resources
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.Properties.Resources.resources
+D:\documents\Visual Studio 2015\Projects\MyServerWindowApp\MyServerWindowApp\obj\Debug\MyServerWindowApp.csproj.GenerateResource.Cache

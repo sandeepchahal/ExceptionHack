@@ -1,0 +1,42 @@
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.exe.config
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.exe
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.pdb
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.csprojResolveAssemblyReference.cache
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.Properties.Resources.resources
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.csproj.GenerateResource.Cache
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.exe
+c:\users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.pdb
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.OTPWindow.resources
+C:\Users\sandeep singh\documents\visual studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.StartingWindow.resources
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.ListOfUsersWindow.resources
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.ChatWindow.resources
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.ToolTipOfUser.resources
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.EditWindow.resources
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\Localchat.sdf
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.PictureBoxForm.resources
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.exe.manifest
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.application
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.exe.manifest
+C:\Users\sandeep singh\Documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.application
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.exe.config
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.exe.manifest
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.application
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.exe
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\MulticlientChat.pdb
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\System.Data.SqlServerCe.dll
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\bin\Debug\System.Data.SqlServerCe.Entity.dll
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.csprojResolveAssemblyReference.cache
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.ChatWindow.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.EditWindow.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.ListOfUsersWindow.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.PictureBoxForm.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.StartingWindow.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.OTPWindow.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.Properties.Resources.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.ToolTipOfUser.resources
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.csproj.GenerateResource.Cache
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.exe.manifest
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.application
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.exe
+D:\documents\Visual Studio 2015\Projects\MulticlientChat\MulticlientChat\obj\Debug\MulticlientChat.pdb
