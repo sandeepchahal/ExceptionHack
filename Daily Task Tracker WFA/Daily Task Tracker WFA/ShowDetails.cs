@@ -38,9 +38,22 @@ namespace Daily_Task_Tracker_WFA
                     dataGridView1.Rows[n].Cells[0].Value = reader["ApplicationName"].ToString();
                     dataGridView1.Rows[n].Cells[1].Value = reader["StartTime"].ToString();
                     dataGridView1.Rows[n].Cells[2].Value = reader["ExitTime"].ToString();
-                    dataGridView1.Rows[n].Cells[3].Value = reader["TotalProcessTime"].ToString();
-                    dataGridView1.Rows[n].Cells[4].Value = (Convert.ToInt64(reader["UserInteractionTime"]) / 1000).ToString();
+                    var totalProcessTime = TimeSpan.Parse(reader["TotalProcessTime"].ToString());
+                    dataGridView1.Rows[n].Cells[3].Value = totalProcessTime.ToString();
 
+                    var userInteractionTime = reader["UserInteractionTime"];
+                    if (userInteractionTime != DBNull.Value)
+                    {
+                        string interactionTime = Convert.ToDouble(userInteractionTime) >= 1000 
+                            ? $"{(Convert.ToDouble(userInteractionTime) / 1000)} seconds" 
+                            : $"{userInteractionTime} miliseconds";
+
+                        dataGridView1.Rows[n].Cells[4].Value = interactionTime;
+                    }
+                    else
+                    {
+                        dataGridView1.Rows[n].Cells[4].Value = ""; // Or any default value you prefer
+                    }
 
                 }
                 connection.Close();

@@ -10,5 +10,6 @@ namespace Daily_Task_Tracker_WFA
     {
         public IntPtr handle;
         public double userInteractionTime;
+        public int lastInputTime { get; set; }
     }
 }
