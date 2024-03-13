@@ -125,7 +125,7 @@ namespace Daily_Task_Tracker_WFA
             while (true)
             {
                 GetLastInputInfo(ref info);
-                Thread.Sleep(200);
+                Thread.Sleep(100);
                 IntPtr thishandle = GetForegroundWindow();
 
                 if (!ListOfProcessTimes.ContainsKey(p.MainWindowHandle))
@@ -141,9 +141,9 @@ namespace Daily_Task_Tracker_WFA
                         {
                             if (lastInput != info.dwtime)
                             {
-                                double elapseMiliseconds = Math.Abs(stopwatch.Elapsed.TotalMilliseconds);
+                                double elapsedMiliseconds = Math.Abs(stopwatch.Elapsed.TotalMilliseconds);
                                 long interactionTimeInMiliseconds = Math.Abs(info.dwtime - lastInput);
-                                UpdateProcessTime(item.handle, interactionTimeInMiliseconds - elapseMiliseconds);
+                                UpdateProcessTime(item.handle, interactionTimeInMiliseconds - elapsedMiliseconds);
                                 stopwatch.Reset();
                                 stopwatch.Stop();
                             }
