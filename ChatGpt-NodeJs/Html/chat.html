@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple HTML Page</title>
+    <style>
+      #chat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      #chatbox {
+        max-width: 700px; 
+        padding-left: 10px;
+      }
+      p {
+        font-family: system-ui;
+        width: 100%;
+        word-wrap: break-word;
+        padding: 10px;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      #chatContainer {
+        height: 700px;
+        width: 800px;
+        border: 1px solid #000;
+        display: flex;
+        text-align: left;
+        overflow: scroll;
+        padding-top:10px;
+      }
+      #textInputContainer {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #inputText {
+        flex: 1;
+        padding: 5px;
+        max-width: 750px;
+      }
+
+      #myButton {
+        padding: 8px 15px;
+        margin-left: 10px;
+      }
+      textarea {
+        height: 100px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat">
+      <div id="chatContainer">
+        <div id="chatbox"></div>
+      </div>
+    </div>
+    <!-- Content inside the div can be added here -->
+    <div id="textInputContainer" class="center">
+      <textarea id="inputText" placeholder="Enter text"></textarea>
+      <button id="sendBtn">send</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .getElementById("inputText")
+      .addEventListener("keydown", (event) => {
+        console.log(event.key);
+        if (event.key === "Enter") {
+          copyUserMsgToChatBox();
+          getServerResponse();
+          document.getElementById("inputText").value = "";
+        }
+      });
+  });
+
+  function copyUserMsgToChatBox() {
+    let userElement = document.getElementById("chatbox");
+    let node = document.createElement("p");
+    node.style.wordWrap = "break-word";
+    node.style.backgroundColor = "rgb(231 251 209)";
+    node.style.border= "1px solid black";
+    node.style.borderRadius ="25px";
+    node.textContent = `User: ${document.getElementById("inputText").value}`;
+    userElement.appendChild(node);
+    node.scrollIntoView();
+  }
+
+  async function getServerResponse() {
+    let userElement = document.getElementById("chatbox");
+    let node = document.createElement("p");
+    node.style.wordWrap = "break-word";
+    node.style.backgroundColor = "#fbd1d1";
+    node.style.border= "1px solid black";
+    node.style.borderRadius ="25px";
+
+    let userMessage = {
+      message: document.getElementById("inputText").value,
+    };
+
+    fetchResponse(userMessage).then((data) => {
+      node.textContent = `Assistant: ${data}`;
+      console.log('data',data);
+      userElement.appendChild(node);
+      node.scrollIntoView();
+    });
+  }
+
+  async function fetchResponse(question) {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Specify that you're sending JSON data
+        // You may include other headers as needed
+      },
+      body: JSON.stringify({question}), // Convert the data to JSON format
+    };
+    let url = "http://localhost:4000/api/chat";
+    try{
+      var response = await fetch(url, fetchOptions);
+      return response.text();
+    }
+    catch{
+      return "ERROR"
+    }     
+  }
+</script>
+
