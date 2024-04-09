@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace AllFileConverter
@@ -60,7 +61,7 @@ namespace AllFileConverter
                             OutputFileTXTBox.Text = FilePath + "\\" + Path.GetFileNameWithoutExtension(selectFile) + ExtensionName;
 
                             OutputFilepath = FilePath + "\\" + Path.GetFileNameWithoutExtension(selectFile) + ExtensionName;
-                            MessageBox.Show(OutputFilepath);
+                            
                         }
                         else if (FileType == "multiple")
                         {
@@ -165,9 +166,7 @@ namespace AllFileConverter
                             FileEXTComboBox.Items.Add(".pdf");
                             break;
                         case 1:
-                            FileEXTComboBox.Items.Add(".doc");
                             FileEXTComboBox.Items.Add(".docx");
-                            FileEXTComboBox.Items.Add(".dotx");
                             break;
                         default:
                             break;
@@ -302,18 +301,33 @@ namespace AllFileConverter
         public void ConvertToDOCFile()// its working but the content is not save as pdf file have
         {
             Microsoft.Office.Interop.Word.Application wordFile = new Microsoft.Office.Interop.Word.Application();
-
             var doc = wordFile.Documents.Add();
-            var para = doc.Paragraphs.Add();
-            para.Range.Text = File.ReadAllBytes(InputFilepath).ToString();
-            wordFile.ActiveDocument.SaveAs(OutputFilepath + "\\" + Path.GetFileNameWithoutExtension(InputFilepath) + outputFileExtension, WdSaveFormat.wdFormatDocument);
+            try
+            {
+                var para = doc.Paragraphs.Add();
+                doc.Content.Text = File.ReadAllText(InputFilepath, Encoding.UTF8);
 
-            //Document doc = wordFile.Documents.Open(InputFilepath, ReadOnly: true);
-            //wordFile.ActiveDocument.SaveAs(OutputFilepath + "\\" + Path.GetFileNameWithoutExtension(InputFilepath) + outputFileExtension, WdSaveFormat.wdFormatDocument);
-            doc.Close();
-            Marshal.ReleaseComObject(wordFile);
-            wordFile = null;
-            MessageBox.Show("Done");
+                doc.SaveAs2(OutputFilepath, WdSaveFormat.wdFormatDocumentDefault);
+                MessageBox.Show("Converted Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // Close the document and quit Word application
+                if (doc != null)
+                {
+                    doc.Close();
+                    Marshal.ReleaseComObject(doc);
+                }
+                if (wordFile != null)
+                {
+                    wordFile.Quit();
+                    Marshal.ReleaseComObject(wordFile);
+                }
+            }
 
         }
         public void ConvertToExcelFile()
@@ -352,7 +366,7 @@ namespace AllFileConverter
                     f.ConvertToPDF();
 
                 }
-                else if (FileEXTComboBox.SelectedItem.ToString().ToLower() == ".doc")
+                else if (FileEXTComboBox.SelectedItem.ToString().ToLower() == ".docx")
                 {
                     f.ConvertToDOCFile();
                 }

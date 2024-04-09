@@ -36,3 +36,17 @@ D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Pr
 D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.CoreCompileInputs.cache
 D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.exe
 D:\Sandeep Laptops\HP Laptop White\SandeepChahal\documents\Visual Studio 2015\Projects\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.pdb
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB.mdf
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\DailyTaskDB_log.ldf
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe.config
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.exe
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\bin\Debug\Daily Task Tracker WFA.pdb
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.AssemblyReference.cache
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.SuggestedBindingRedirects.cache
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.DailyTasktracker.resources
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.Properties.Resources.resources
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily_Task_Tracker_WFA.ShowDetails.resources
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.GenerateResource.cache
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.csproj.CoreCompileInputs.cache
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.exe
+C:\Users\SandeepSingh\OneDrive - Leapwork A S\Pictures\ExceptionHack\Daily Task Tracker WFA\Daily Task Tracker WFA\obj\Debug\Daily Task Tracker WFA.pdb

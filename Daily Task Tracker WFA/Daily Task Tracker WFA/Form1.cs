@@ -1,28 +1,26 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Daily_Task_Tracker_WFA
 {
     public partial class DailyTasktracker : Form
     {
-        List<Process> listOfRunningProcess = new List<Process>();
-        List<ProcessDetails> ListOfProcessTimes = new List<ProcessDetails>();
+        readonly List<Process> listOfRunningProcess = new List<Process>();
+        readonly ConcurrentDictionary<IntPtr, ProcessDetails> ListOfProcessTimes = new ConcurrentDictionary<IntPtr, ProcessDetails>();
+        private static readonly object lockObject = new object();
+
         public DailyTasktracker()
         {
             InitializeComponent();
-            Thread t = new Thread(()=>GetProcess());
+            Thread t = new Thread(() => GetProcess());
             t.Start();
         }
 
@@ -38,16 +36,16 @@ namespace Daily_Task_Tracker_WFA
                 while (true)
                 {
                     Thread.Sleep(1000);
-                    getProcess= Process.GetProcesses();
+                    getProcess = Process.GetProcesses();
                     foreach (var item in getProcess)
                     {
-                        if(item.MainWindowTitle!="")
+                        if (item.MainWindowTitle != "")
                         {
-                            if(listOfRunningProcess.Count==0)
+                            if (listOfRunningProcess.Count == 0)
                             {
                                 listOfRunningProcess.Add(item);
                             }
-                            else if(!listOfRunningProcess.Any(h=>h.MainWindowHandle==item.MainWindowHandle))
+                            else if (!listOfRunningProcess.Any(h => h.MainWindowHandle == item.MainWindowHandle))
                             {
                                 listOfRunningProcess.Add(item);
                                 Thread newThread = new Thread(() => CalculateTimeForProcesses(item));
@@ -59,26 +57,26 @@ namespace Daily_Task_Tracker_WFA
 
                         }
                     }
-                }   
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        public void AddDataToDataBase(string applicationName,string startTime,string exitTime,string TotalProcessTime,string UserInteractionTime)
+        public void AddDataToDataBase(string applicationName, string startTime, string exitTime, string TotalProcessTime, string UserInteractionTime)
         {
             try
             {
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DailyTaskDBConnectionString"].ToString());
-                string insertString = "insert into [DailyTaskTracker]([ApplicationName],[StartTime],[ExitTime],[TotalProcessTime],[UserInteractionTime]) values ('" + applicationName + "','" + startTime + "','" + exitTime + "','" + TotalProcessTime + "','"+UserInteractionTime+"')";
-                SqlCommand cmd = new SqlCommand(insertString,connection);
+                string insertString = "insert into [DailyTaskTracker]([ApplicationName],[StartTime],[ExitTime],[TotalProcessTime],[UserInteractionTime]) values ('" + applicationName + "','" + startTime + "','" + exitTime + "','" + TotalProcessTime + "','" + UserInteractionTime + "')";
+                SqlCommand cmd = new SqlCommand(insertString, connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -92,16 +90,17 @@ namespace Daily_Task_Tracker_WFA
             p.WaitForExit();
             for (int i = 0; i < ListOfProcessTimes.Count; i++)
             {
-                if (p.MainWindowHandle ==ListOfProcessTimes[i].handle)
+                if (p.MainWindowHandle == ListOfProcessTimes.ElementAt(i).Key)
                 {
-                    UserInteractionTime= ListOfProcessTimes[i].userInteractionTime.ToString();
-                    ListOfProcessTimes.RemoveAt(i);
+                    UserInteractionTime = ListOfProcessTimes.ElementAt(i).Value.userInteractionTime.ToString();
+                    ListOfProcessTimes.TryRemove(ListOfProcessTimes.ElementAt(i).Key, out _);
                     break;
                 }
             }
             DateTime exitTime = p.ExitTime;
             string TotalProcessTime = exitTime.Subtract(startTime).ToString();
-            AddDataToDataBase(applicationName, startTime.ToString(), exitTime.ToString(), TotalProcessTime,UserInteractionTime);
+
+            AddDataToDataBase(applicationName, startTime.ToString(), exitTime.ToString(), TotalProcessTime, UserInteractionTime);
         }
 
         private void ListBtn_Click(object sender, EventArgs e)
@@ -114,6 +113,64 @@ namespace Daily_Task_Tracker_WFA
         {
             Environment.Exit(0);
         }
+        public void GetTimeForEveryProcess(Process p)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+
+            LASTINPUTINFO info = new LASTINPUTINFO();
+            info.size = Marshal.SizeOf(info);
+            info.dwtime = 0;
+            int lastInput = 0;
+            GetLastInputInfo(ref info);
+            while (true)
+            {
+                GetLastInputInfo(ref info);
+                Thread.Sleep(100);
+                IntPtr thishandle = GetForegroundWindow();
+
+                if (!ListOfProcessTimes.ContainsKey(p.MainWindowHandle))
+                {
+                    ProcessDetails process = new ProcessDetails { handle = p.MainWindowHandle, userInteractionTime = 0 };
+                    ListOfProcessTimes.TryAdd(p.MainWindowHandle, process);
+                }
+                else
+                {
+                    if (thishandle == p.MainWindowHandle)
+                    {
+                        if (ListOfProcessTimes.TryGetValue(p.MainWindowHandle, out ProcessDetails item))
+                        {
+                            if (lastInput != info.dwtime)
+                            {
+                                double elapsedMiliseconds = Math.Abs(stopwatch.Elapsed.TotalMilliseconds);
+                                long interactionTimeInMiliseconds = Math.Abs(info.dwtime - lastInput);
+                                UpdateProcessTime(item.handle, interactionTimeInMiliseconds - elapsedMiliseconds);
+                                stopwatch.Reset();
+                                stopwatch.Stop();
+                            }
+                            else
+                            {
+                                if (!stopwatch.IsRunning)
+                                {
+                                    stopwatch.Start();
+                                }
+                            }
+                        }
+                    }
+                }
+                lastInput = info.dwtime;
+            }
+        }
+        private void UpdateProcessTime(IntPtr handle, double time)
+        {
+            lock (lockObject)
+            {
+                if (ListOfProcessTimes.TryGetValue(handle, out ProcessDetails item))
+                {
+                    item.userInteractionTime += time;
+                }
+            }
+        }
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
         [DllImport("User32.dll")]
@@ -124,47 +181,6 @@ namespace Daily_Task_Tracker_WFA
             public int size;
             public int dwtime;
         }
-        public void GetTimeForEveryProcess(Process p)
-        {
-            LASTINPUTINFO info = new LASTINPUTINFO();
-            info.size = Marshal.SizeOf(info);
-            info.dwtime = 0;
-            int lastInput = 0;
-            while(true)
-            {
-                Thread.Sleep(100);
-                info.dwtime = GetLastInputInfo(ref info);
-                IntPtr thishandle = GetForegroundWindow();
-                
-                if (ListOfProcessTimes.Count == 0)
-                {
-                    ProcessDetails process = new ProcessDetails { handle = p.MainWindowHandle, userInteractionTime = 0 };
-                    ListOfProcessTimes.Add(process);
-                }
-                else if (ListOfProcessTimes.Count!=0)
-                {
-                    foreach (var item in ListOfProcessTimes)
-                    {
-                        if (item.handle == thishandle)
-                        {
-                            if (lastInput != info.dwtime)
-                            {
-                                MessageBox.Show((info.dwtime - lastInput).ToString());
-                                item.userInteractionTime += info.dwtime - lastInput;
-                                break;
-                            
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    ProcessDetails process = new ProcessDetails { handle = p.MainWindowHandle, userInteractionTime = 0 };
-                    ListOfProcessTimes.Add(process);
-                }
-                
-                lastInput = GetLastInputInfo(ref info);
-            }
-        }
     }
 }
+
