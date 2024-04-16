@@ -1,0 +1,25 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/order/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "order-service",
+      "DownstreamPathTemplate": "/api/order/{everything}",
+      "UpstreamHttpMethod": [ "GET","PUT","POST","DELETE" ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "product-service",
+      "DownstreamPathTemplate": "/api/product/{everything}",
+      "UpstreamHttpMethod": [ "GET","PUT","POST","DELETE" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}
