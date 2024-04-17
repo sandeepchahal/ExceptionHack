@@ -5,14 +5,24 @@
       "DownstreamScheme": "http",
       "ServiceName": "order-service",
       "DownstreamPathTemplate": "/api/order/{everything}",
-      "UpstreamHttpMethod": [ "GET","PUT","POST","DELETE" ]
+      "UpstreamHttpMethod": [ "GET","PUT","POST","DELETE" ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
     },
     {
       "UpstreamPathTemplate": "/product/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "product-service",
       "DownstreamPathTemplate": "/api/product/{everything}",
-      "UpstreamHttpMethod": [ "GET","PUT","POST","DELETE" ]
+      "UpstreamHttpMethod": [ "GET","PUT","POST","DELETE" ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "DurationOfBreak": 10000,
+        "TimeoutValue": 5000
+      }
     }
   ],
   "GlobalConfiguration": {

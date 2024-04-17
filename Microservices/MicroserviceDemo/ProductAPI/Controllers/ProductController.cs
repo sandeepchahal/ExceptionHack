@@ -43,7 +43,7 @@ public class ProductController:ControllerBase
     {
         try
         {
-            return StatusCode(StatusCodes.Status200OK, list);
+            return StatusCode(StatusCodes.Status500InternalServerError, list);
         }
         catch(Exception ex)
         {
