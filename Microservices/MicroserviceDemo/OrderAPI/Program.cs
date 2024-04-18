@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Consul;
 using OrderAPI;
 
@@ -15,7 +16,14 @@ builder.Services.AddSingleton<IConsulClient>(_ => new ConsulClient(config =>
 {
     config.Address = new Uri(consulHost);
 }));
+
+builder.Services.AddHttpClient("ProductAPI").AddCircuitBreakerPolicy().ConfigureHttpClient(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5086");
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+});
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
