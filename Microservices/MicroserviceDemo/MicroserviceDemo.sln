@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAPI", "OrderAPI\OrderA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{F914519F-49AE-4503-A65D-C243B203CB8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryAPI", "InventoryAPI\InventoryAPI.csproj", "{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F914519F-49AE-4503-A65D-C243B203CB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F914519F-49AE-4503-A65D-C243B203CB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F914519F-49AE-4503-A65D-C243B203CB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
