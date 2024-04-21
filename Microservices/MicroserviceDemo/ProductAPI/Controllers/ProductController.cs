@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage;
+using ProductAPI.Implementation;
 using ProductAPI.Models;
 
 namespace ProductAPI.Controllers;
@@ -8,8 +10,12 @@ namespace ProductAPI.Controllers;
 public class ProductController:ControllerBase
 {
     private List<Product> list;
-    public ProductController()
+    private readonly ProductDbContext _productDbContext;
+    private IDbContextTransaction _transaction;
+
+    public ProductController(ProductDbContext productDbContext)
     {
+        _productDbContext = productDbContext;
         list = new List<Product>()
         {
             new Product()
@@ -62,6 +68,65 @@ public class ProductController:ControllerBase
         {
             return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
         }
+    }
+    
+    [HttpPost("prepare-product/{id:int}/{quantity:int}/{token}")]
+    public async Task<IActionResult> ReserveProduct(int id, int quantity, CancellationToken token)
+    {
+        try
+        {
+            _transaction = await _productDbContext .Database.BeginTransactionAsync(token);
+            var inventory = await _productDbContext.Products.FindAsync(new object?[] { id }, cancellationToken: token);
+            if (inventory is null)
+            {
+                return StatusCode(StatusCodes.Status404NotFound);
+            }
+
+            inventory.Quantity -= quantity;
+            await _productDbContext.SaveChangesAsync(token);
+               
+            return StatusCode(StatusCodes.Status200OK);
+
+        }
+        catch
+        {
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+    }
+
+    [HttpPost("commit-product/{token}")]
+    public async Task<IActionResult> CommitInventory(CancellationToken token)
+    {
+        try
+        {
+            await _transaction.CommitAsync(token);
+            return StatusCode(StatusCodes.Status200OK);
+
+        }
+        catch
+        {
+            await _transaction.RollbackAsync(token);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+    }
+    
+    [HttpPost("rollback-product/{token}")]
+    public async Task<IActionResult> RollbackInventory(CancellationToken token)
+    {
+        try
+        {
+            await _transaction.RollbackAsync(token);
+            return StatusCode(StatusCodes.Status200OK);
+
+        }
+        catch
+        {
+            await _transaction.RollbackAsync(token);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
     }
 }
 

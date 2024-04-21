@@ -22,6 +22,15 @@ builder.Services.AddHttpClient("ProductAPI").AddCircuitBreakerPolicy().Configure
     client.BaseAddress = new Uri("http://localhost:5086");
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 });
+
+
+builder.Services.AddHttpClient("InventoryAPI").AddCircuitBreakerPolicy().ConfigureHttpClient(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5230");
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+});
+
+
 var app = builder.Build();
 
 
