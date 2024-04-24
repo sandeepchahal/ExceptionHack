@@ -60,4 +60,33 @@ public class InventoryController : ControllerBase
 
     }
     
+    [HttpPost("saga-reserve-inventory/{id:int}/{quantity:int}/{token}")]
+    public async Task<IActionResult> SagaReserveInventory(int id, int quantity, CancellationToken token)
+    {
+        var transaction = await _inventoryDbContext.Database.BeginTransactionAsync(token);
+
+        try
+        {
+                var inventory =
+                    await _inventoryDbContext.Inventories.FindAsync(new object?[] { id }, cancellationToken: token);
+                if (inventory is null)
+                {
+                    return StatusCode(StatusCodes.Status404NotFound);
+                }
+                inventory.Quantity -= quantity;
+                await _inventoryDbContext.SaveChangesAsync(token);
+                await transaction.CommitAsync(token);
+            return StatusCode(StatusCodes.Status200OK);
+
+        }
+        catch
+        {
+            await transaction.RollbackAsync(token);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+    }
+    
+    
+    
 }

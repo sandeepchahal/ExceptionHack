@@ -128,6 +128,61 @@ public class ProductController:ControllerBase
         }
 
     }
+    
+    [HttpPost("saga-prepare-product/{id:int}/{quantity:int}/{token}")]
+    public async Task<IActionResult> SagaReserveProduct(int id, int quantity, CancellationToken token)
+    {           
+        var transaction = await _productDbContext .Database.BeginTransactionAsync(token);
+
+        try
+        {
+            var product = await _productDbContext.Products.FindAsync(new object?[] { id }, cancellationToken: token);
+            if (product is null)
+            {
+                return StatusCode(StatusCodes.Status404NotFound);
+            }
+
+            product.Quantity -= quantity;
+            await _productDbContext.SaveChangesAsync(token);
+            await transaction.CommitAsync(token);
+            return StatusCode(StatusCodes.Status200OK);
+
+        }
+        catch
+        {
+            await transaction.RollbackAsync(token);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+    }
+    
+    [HttpPost("saga-compensate-product/{id:int}/{quantity:int}/{token}")]
+    public async Task<IActionResult> SagaCompensateProduct(int id, int quantity, CancellationToken token)
+    {           
+        var transaction = await _productDbContext .Database.BeginTransactionAsync(token);
+
+        try
+        {
+            var product = await _productDbContext.Products.FindAsync(new object?[] { id }, cancellationToken: token);
+            if (product is null)
+            {
+                return StatusCode(StatusCodes.Status404NotFound);
+            }
+
+            product.Quantity += quantity;
+            await _productDbContext.SaveChangesAsync(token);
+            await transaction.CommitAsync(token);
+            return StatusCode(StatusCodes.Status200OK);
+
+        }
+        catch
+        {
+            await transaction.RollbackAsync(token);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+    }
+
 }
 
 

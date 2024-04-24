@@ -62,4 +62,45 @@ public class OrderController:ControllerBase
         return StatusCode(StatusCodes.Status501NotImplemented, "product or inventory response is not ok");
 
     }
+    
+    
+     [HttpPost("saga-create")]
+    public async Task<IActionResult> SagaCreateOrder(Order order, CancellationToken token)
+    {
+        var productResponse = await _httpClientProduct
+            .PostAsync($"api/product/saga-prepare-product/{order.Product.Id}/{order.Product.Quantity}/{token}", 
+                new StringContent(string.Empty));
+        if (!productResponse.IsSuccessStatusCode)
+        {
+            return StatusCode(StatusCodes.Status501NotImplemented, "Product response is not oK");
+        }
+        var inventoryResponse = await _httpClientInventory
+            .PostAsync($"api/product/prepare-inventory/{order.Inventory.InventoryId}/{order.Inventory.Quantity}/{token}", 
+                new StringContent(string.Empty));
+
+        if (inventoryResponse.IsSuccessStatusCode)
+        {
+            // another api shipping 
+            return StatusCode(StatusCodes.Status501NotImplemented, "Order is created");
+        }
+
+        if (await CompensateProduct(order.Product.Id, order.Product.Quantity, token: token))
+        {
+            return StatusCode(StatusCodes.Status501NotImplemented, "Product is compensated because Inventory failed to process");
+        }
+        return StatusCode(StatusCodes.Status501NotImplemented, "Order is created");
+    }
+
+    private async Task<bool> CompensateProduct(int id, int quantity, CancellationToken token)
+    {
+        var compensateProductResponse = await _httpClientProduct
+            .PostAsync($"api/product/saga-compensate-product/{id}/{quantity}/{token}", 
+                new StringContent(string.Empty));
+        if (compensateProductResponse.IsSuccessStatusCode)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
