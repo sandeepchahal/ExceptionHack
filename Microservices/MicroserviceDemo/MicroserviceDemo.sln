@@ -1,5 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductAPI", "ProductAPI\ProductAPI.csproj", "{9D0C1EAB-5AD1-4F36-BFFE-107ABBF64477}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAPI", "OrderAPI\OrderAPI.csproj", "{92FAB573-2153-4B22-BCA9-18CB032E50D4}"
@@ -7,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{F914519F-49AE-4503-A65D-C243B203CB8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryAPI", "InventoryAPI\InventoryAPI.csproj", "{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification", "Notification\Notification.csproj", "{2C219817-0B50-4786-91FC-A73E4FB680BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +33,9 @@ Global
 		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D46D639-EB70-48CB-8AF4-038F2AABAEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C219817-0B50-4786-91FC-A73E4FB680BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C219817-0B50-4786-91FC-A73E4FB680BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C219817-0B50-4786-91FC-A73E4FB680BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C219817-0B50-4786-91FC-A73E4FB680BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
