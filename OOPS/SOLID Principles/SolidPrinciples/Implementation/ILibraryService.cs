@@ -4,6 +4,6 @@ namespace SolidPrinciples.Implementation;
 
 public interface ILibraryService
 {
-    void ProcessCheckout(ICatalogItem item, Student student);
-    void ProcessReturn(ICatalogItem book);
+    void ProcessCheckout(ICheckout item, Student student);
+    void ProcessReturn(ICheckout book);
 }

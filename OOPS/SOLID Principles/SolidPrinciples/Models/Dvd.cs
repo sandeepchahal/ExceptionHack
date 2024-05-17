@@ -1,15 +1,13 @@
 namespace SolidPrinciples.Models;
 
-public class Dvd:ICatalogItem
+public class Dvd:ICheckout
 {
     public string Title { get;}
     public bool IsAvailable { get;}
-    public bool IsCheckAllowed { get; set; }
 
     public Dvd(string title)
     {
         Title = title;
         IsAvailable = true;
-        IsCheckAllowed = true;
     }
 }

@@ -2,32 +2,31 @@ using SolidPrinciples.Models;
 
 namespace SolidPrinciples.Implementation;
 
-public class LibraryService: ILibraryService
+public class LibraryService : ILibraryService
 {
-    private readonly AuthenticationService _authentication;
-    public LibraryService(AuthenticationService service)
+    private readonly IAuthenticationService _authentication;
+
+    public LibraryService(IAuthenticationService service)
     {
         _authentication = service;
     }
-    public void ProcessCheckout(ICatalogItem book, Student student)
+
+    public void ProcessCheckout(ICheckout book, Student student)
     {
-        if (book.IsCheckAllowed)
+        if (_authentication.IsValid(student: student))
         {
-            if (_authentication.IsAStudent(student: student))
-            {
-                Console.WriteLine(book.IsAvailable
-                    ? $"{book.Title} is checked out successfully!"
-                    : $"{book.Title} is not available");
-            }
-            else
-            {
-                Console.WriteLine("User is not student");
-            }
-        } 
-    }
-    public void ProcessReturn(ICatalogItem book)
-    {
-      Console.WriteLine("Book is returned successfully");
+            Console.WriteLine(book.IsAvailable
+                ? $"{book.Title} is checked out successfully!"
+                : $"{book.Title} is not available");
+        }
+        else
+        {
+            Console.WriteLine("User is not student");
+        }
     }
 
+    public void ProcessReturn(ICheckout book)
+    {
+        Console.WriteLine("Book is returned successfully");
+    }
 }
